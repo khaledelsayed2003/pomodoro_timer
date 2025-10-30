@@ -11,6 +11,7 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
+timer = None
 
 
 # UI setup......
@@ -57,18 +58,33 @@ def count_down(count):
         count_min = f"0{count_min}"  # Apply Dynamic typing concept for mins..
     canvas.itemconfig(timer_text, text= f"{count_min}:{count_sec}")
     if count > 0:
-        window.after(1000, count_down, count - 1) # calls that fun after that amount of time in milliseconds.
+        global timer
+        timer = window.after(1000, count_down, count - 1) # calls that fun after that amount of time in milliseconds.
     else:
         start_timer()
+        marks = ""
+        work_sessions = math.floor(reps/2)
+        for num in range(work_sessions):
+            marks += "✔"
+        checkmark_label.config(text= marks)
+
+# Resetting the Application
+def reset_timer():
+    window.after_cancel(timer) 
+    canvas.itemconfig(timer_text, text="00:00") 
+    title_label.config(text="Timer", fg=GREEN)
+    checkmark_label.config(text="")   
+    global reps 
+    reps = 0       
 # -------------------------------------------------------------------------------------------------------------
 
 start_button = Button(text="Start", width=8, font=(FONT_NAME, 15, "bold"), command= start_timer)
 start_button.grid(column=0, row=2)
 
-checkmark_label = Label(text="✔", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 15, "bold"))
+checkmark_label = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 15, "bold"))
 checkmark_label.grid(column=1, row=3)
 
-reset_button = Button(text="Reset", width=8, font=(FONT_NAME, 15, "bold"))
+reset_button = Button(text="Reset", width=8, font=(FONT_NAME, 15, "bold"), command= reset_timer)
 reset_button.grid(column=2, row=2)
 
 
