@@ -19,7 +19,8 @@ Stay focused, take breaks, and repeat — the classic productivity loop.
 Pomodoro_Timer/
 │
 ├── assets/ # Image assets for visual feedback
-│ ├── start.png # Default image at app start
+│ ├── tomato.png # the tomato img
+│ ├── start.png # Default screen at app start
 │ ├── work.png # Shown during work sessions
 │ ├── short_break.png # Shown during short breaks
 │ └── long_break.png # Shown during long breaks
