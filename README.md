@@ -15,16 +15,18 @@ Stay focused, take breaks, and repeat — the classic productivity loop.
 ---
 
 ## 📁 Folder Structure
+```bash
 Pomodoro_Timer/
 │
-├── assets/
-│ ├── start.png
-│ ├── work.png
-│ ├── short_break.png
-│ └── long_break.png
+├── assets/ # Image assets for visual feedback
+│ ├── start.png # Default image at app start
+│ ├── work.png # Shown during work sessions
+│ ├── short_break.png # Shown during short breaks
+│ └── long_break.png # Shown during long breaks
 │
-├── pomodoro.py
-└── README.md
+├── pomodoro.py # Main Tkinter application
+│
+└── README.md # Documentation file
 
 
 ## ▶️ Run It
