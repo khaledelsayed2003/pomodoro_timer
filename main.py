@@ -24,7 +24,7 @@ title_label = Label(text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 35, "bol
 title_label.grid(column=1, row=0)
 
 canvas = Canvas(width= 200, height= 224, bg= YELLOW, highlightthickness=0) 
-tomato_img = PhotoImage(file= "pomodoro_timer/tomato.png") # to read through a file to get hold of that image.
+tomato_img = PhotoImage(file= "pomodoro_timer/assets/tomato.png") # to read through a file to get hold of that image.
 canvas.create_image(100, 112, image= tomato_img)
 timer_text = canvas.create_text(100, 130, text= "00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
