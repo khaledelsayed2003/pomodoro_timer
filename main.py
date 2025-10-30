@@ -33,8 +33,13 @@ canvas.grid(column=1, row=1)
 def count_down(count):
     count_min = math.floor(count / 60)
     count_sec = count % 60 
+    if int(count_sec) <= 9:
+        count_sec = f"0{count_sec}"  # Apply Dynamic typing concept for sec..
+    if int(count_min) <= 9:
+        count_min = f"0{count_min}"  # Apply Dynamic typing concept for mins..
     canvas.itemconfig(timer_text, text= f"{count_min}:{count_sec}")
-    window.after(1000, count_down, count - 1) # calls that fun after that amount of time in milliseconds.
+    if count > 0:
+        window.after(1000, count_down, count - 1) # calls that fun after that amount of time in milliseconds.
 # -------------------------------------------------------------------------------------------------------------
 
 start_button = Button(text="Start", width=8, font=(FONT_NAME, 15, "bold"), command= lambda: count_down(25*60))
